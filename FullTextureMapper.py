@@ -536,7 +536,7 @@ class FullTextureMapper(object):
                 face_str = '{}'.format(np.uint8(len(face)))
                 for vertex_idx in face:
                     face_str += ' {}'.format(np.int32(vertex_idx))
-                face_str += '\n'
+                face_str += ' '  # was a newline, VTK's PLY parser does not like a newline here
 
                 texcoord_str = '{}'.format(np.uint8(len(face) * 2))
                 for uv in uv_coords:
